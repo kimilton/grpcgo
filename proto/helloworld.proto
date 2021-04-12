@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package helloworldproto;
+
+option go_package="github.com/kimilton/grpcgo/helloworldproto";
+
+service Communicator {
+  rpc InititateCommunication (InitRequest) returns (Ack) {}
+  rpc SendMessage (PrivateMessage) returns (Ack) {} 
+}
+
+message InitRequest {
+  string name = 1;
+}
+
+message PrivateMessage {
+  string content = 1;
+}
+
+message Ack {
+  bool ack = 1; 
+}
